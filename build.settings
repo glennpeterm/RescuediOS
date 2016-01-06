@@ -1,0 +1,87 @@
+-- Supported values for orientation:
+-- portrait, portraitUpsideDown, landscapeLeft, landscapeRight
+
+settings = {
+	
+	orientation = {
+		default = "landscapeRight",
+		supported = { "landscapeRight", }
+	},
+    plugins =
+    {
+        ["CoronaProvider.analytics.flurry"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+        --["plugin.google.play.services"] =
+       -- {
+        --    publisherId = "com.coronalabs"
+        --},
+        ["plugin.zip"] =
+        {
+         publisherId = "com.coronalabs",
+        },
+    },
+	
+	iphone = {
+		plist = {
+        CFBundleShortVersionString = "2.0",
+			UIStatusBarHidden = false,
+			UIPrerenderedIcon = true, -- set to false for "shine" overlay
+			--UIApplicationExitsOnSuspend = false, -- uncomment to quit app on suspend
+
+            CFBundleIconFile = "Icon.png",
+			CFBundleIconFiles =
+			{
+                "Icon.png", 
+                "Icon@2x.png", 
+                "Icon-60.png",
+                "Icon-60@2x.png",
+                "Icon-72.png", 
+                "Icon-72@2x.png",
+                "Icon-76.png",
+                "Icon-76@2x.png", 
+                "Icon-Small.png", 
+                "Icon-Small@2x.png",
+                "Icon-Small-40.png",
+                "Icon-Small-40@2x.png",
+                "Icon-Small-50.png", 
+                "Icon-Small-50@2x.png", 
+			},
+            UIAppFonts =
+           {
+              -- "BLKCHCRY.ttf",
+              "Averia.ttf",
+                
+            },
+            
+            CFBundleURLTypes =
+            {
+                {
+                    
+                }
+            }
+            
+		}
+	},
+	
+	
+	android =
+        {
+           
+            usesPermissions =
+            {
+               "android.permission.INTERNET",
+               -- "com.android.vending.CHECK_LICENSE",
+               "android.permission.WRITE_EXTERNAL_STORAGE",
+                -- The following permissions are optional.
+                -- If set, Flurry will also record current location via GPS and/or WiFi.
+                -- If not set, Flurry can only record which country the app was used in.
+                "android.permission.ACCESS_FINE_LOCATION",    --fetches location via GPS
+                "android.permission.ACCESS_COARSE_LOCATION",  --fetches location via WiFi or cellular service
+            },
+           
+        },
+
+	
+}
